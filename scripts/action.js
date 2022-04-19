@@ -6,8 +6,8 @@ function getId(valor) {
 // capturando os nomes dos jogadores
 function nomesJogadores() {
 
-    let jogador_1 = getId('jogador_1').value;
-    let jogador_2 = getId('jogador_2').value;
+    let jogador_1 = getId('jogador_1').value.toUpperCase();
+    let jogador_2 = getId('jogador_2').value.toUpperCase();
     // jogando na sission pra facilitar a manipulação depois
     sessionStorage.setItem('jogador_1',jogador_1);
     sessionStorage.setItem('jogador_2',jogador_2);
@@ -33,20 +33,20 @@ function nomesJogadores() {
     // botão pra recarregar a pagína e mudar os nomes👼
     let criarTag = getId('botoes');
     let btn = document.createElement("button");
-    btn.innerHTML= 'Novo jogador?';
+    btn.innerHTML= 'Novo jogo?';
     btn.setAttribute('onclick','novosJogadores()');
     criarTag.appendChild(btn);
-        
+    let jogada = null;
     function comecarJogo() {
         // escolhendo um dos jogadores aleatoriamente para iniciar o jogo
         let sort = Math.floor(Math.random() * 2) + 1;
         if (sort === 1) {
             getId('jogador-selecionado').innerHTML = ` <b class="color-b">${jogador_1}</b> `;
-            let jogada = 'X';
+            jogada = 'X';
             mudarJogada(jogada);
         } else {
             getId('jogador-selecionado').innerHTML = ` <b class="color-b">${jogador_2}</b> `;
-            let jogada = 'O';
+           jogada = 'O';
             mudarJogada(jogada);
         }
     }
@@ -81,39 +81,134 @@ function clicouNoQuadrado(id) {
     quadrado.innerHTML = jogada;
     quadrado.style.color = "#F22558";
 
-    if (jogada === 'x') {
+    if (jogada === 'X') {
         getId('jogador-selecionado').innerHTML = ` <b class="color-b">${j_2}</b> `;
         jogada = 'O';
     } else {
         getId('jogador-selecionado').innerHTML = ` <b class="color-b">${j_1}</b> `;
-        jogada = 'x';
+        jogada = 'X';
     }
     checarVencedor();
     mudarJogada(jogada);
 }
 
-function vencedor(){
+function vencedor(venceu){
+    let removerInput = getId('jogadores');
+     removerInput.removeChild(removerInput.lastChild);
+
     let criarTags = getId('jogadores');
     let label2 = document.createElement("label");
     label2.setAttribute('id','vencedor');
-    criarTags.appendChild(label2);
+    if(venceu.innerHTML === 'X'){
+        let j1 = sessionStorage.getItem('jogador_1');
+        label2.innerHTML = `<b class="color-b">${j1}</b> é o Vencedor(a)`;
+        criarTags.appendChild(label2);
+    } else{
+        let j2 = sessionStorage.getItem('jogador_2');
+        label2.innerHTML = `<b class="color-b">${j2}</b> é o Vencedor(a)`;
+        criarTags.appendChild(label2);
+    }
+    
+    // depois arrumo uma solução mais legal 
+    let but = document.querySelectorAll('button')[0];
+    but.removeAttribute('onclick');
+   but.setAttribute('onclick','novosJogadores()');
+    
 }
 
 
-function checarVencedor() {
-    let quadrado_1 = getId(1);
-    let quadrado_2 = getId(2);
-    let quadrado_3 = getId(3);
-    let quadrado_4 = getId(4);
-    let quadrado_5 = getId(5);
-    let quadrado_6 = getId(6);
-    let quadrado_7 = getId(7);
-    let quadrado_8 = getId(8);
-    let quadrado_9 = getId(8);
 
+let cont = 0;
+function checarVencedor(){
+    cont++;
+    console.log(cont);
+    let quadrado1 = getId(1);
+    let quadrado2 = getId(2);
+    let quadrado3 = getId(3);
+    let quadrado4 = getId(4);
+    let quadrado5 = getId(5);
+    let quadrado6 = getId(6);
+    let quadrado7 = getId(7);
+    let quadrado8 = getId(8);
+    let quadrado9 = getId(9);
 
+    if (checaSequencia(quadrado1, quadrado2, quadrado3)) {
+        mudaCorQuadrado(quadrado1, quadrado2, quadrado3);
+        vencedor(quadrado1);
+        return;
+    }
 
+    if (checaSequencia(quadrado4, quadrado5, quadrado6)) {
+        mudaCorQuadrado(quadrado4, quadrado5, quadrado6);
+        vencedor(quadrado4);
+        return;
+    }
 
+    if (checaSequencia(quadrado7, quadrado8, quadrado9)) {
+        mudaCorQuadrado(quadrado7, quadrado8, quadrado9);
+        vencedor(quadrado7);
+        return;
+    }
+
+    if (checaSequencia(quadrado1, quadrado4, quadrado7)) {
+        mudaCorQuadrado(quadrado1, quadrado4, quadrado7);
+        vencedor(quadrado1);
+        return;
+    }
+
+    if (checaSequencia(quadrado2, quadrado5, quadrado8)) {
+        mudaCorQuadrado(quadrado2, quadrado5, quadrado8);
+        vencedor(quadrado2);
+        return;
+    }
+
+    if (checaSequencia(quadrado3, quadrado6, quadrado9)) {
+        mudaCorQuadrado(quadrado3, quadrado6, quadrado9);
+        vencedor(quadrado3);
+        return;
+    }
+
+    if (checaSequencia(quadrado1, quadrado5, quadrado9)) {
+        mudaCorQuadrado(quadrado1, quadrado5, quadrado9);
+        vencedor(quadrado1);
+        return;
+    }
+
+    if (checaSequencia(quadrado3, quadrado5, quadrado7)) {
+        mudaCorQuadrado(quadrado3, quadrado5, quadrado7);
+        vencedor(quadrado3);
+    }
+
+    // deu velha
+    if (cont === 9){
+        let removerInput = getId('jogadores');
+        removerInput.removeChild(removerInput.lastChild);
+
+        let criarTags = getId('jogadores');
+        let label2 = document.createElement("label");
+        label2.setAttribute('id','vencedor');
+        label2.innerHTML = 'Deu Velha!';
+        criarTags.appendChild(label2);
+    }
+}
+
+function mudaCorQuadrado(quadrado1, quadrado2, quadrado3) {
+    quadrado1.style.background = '#f22558';
+    quadrado1.style.color = '#fff';
+    quadrado2.style.background = '#f22558';
+    quadrado2.style.color = '#fff';
+    quadrado3.style.background = '#f22558';
+    quadrado3.style.color = '#fff';
+}
+
+function checaSequencia(quadrado1, quadrado2, quadrado3) {
+    var eigual = false;
+
+    if (quadrado1.innerHTML !== '-' && quadrado1.innerHTML === quadrado2.innerHTML && quadrado2.innerHTML === quadrado3.innerHTML) {
+        eigual = true;
+    }
+
+    return eigual;
 }
 
 function reiniciar(){

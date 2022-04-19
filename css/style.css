@@ -16,13 +16,10 @@ header {
 }
 
 .img__logo {
-    width: 100px;
+    width: 120px;
     height: auto;
-    margin-top: 5px;
-    margin-left: 5px;
+    padding: 8px;
 }
-
-
 
 .img__logo__velha {
     width: 140px;
@@ -120,7 +117,9 @@ button {
     color: #000;
     font-size: 1em;
 }
-
+#valorDaJogada{
+    color:rgb(255, 9, 9);
+}
 .div__area {
     width: 1em;
     background-color: rgba(196, 194, 194, 0.89);
