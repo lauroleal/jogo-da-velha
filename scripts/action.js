@@ -110,6 +110,10 @@ function checarVencedor() {
     let quadrado_7 = getId(7);
     let quadrado_8 = getId(8);
     let quadrado_9 = getId(8);
+
+
+
+
 }
 
 function reiniciar(){
