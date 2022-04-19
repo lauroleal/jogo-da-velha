@@ -1,0 +1,254 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans', Arial;
+    color: var(--secondary);
+    text-align: center;
+}
+
+ :root {
+    --primary: #000;
+    --secondary: #f22558;
+}
+
+header {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.img__logo {
+    width: 100px;
+    height: auto;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.img__logo__velha {
+    width: 140px;
+    height: auto;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.icones__sociais {
+    width: 33px;
+    height: auto;
+    margin: 15px 5px 5px 0px;
+}
+
+.box__externo {
+    display: flex;
+}
+
+.box__interno {
+    display: flex;
+    flex: auto;
+    justify-content: flex-end;
+}
+
+#placar {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    padding: 1em;
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+}
+
+p {
+    margin-bottom: 0.3em;
+    font-weight: bold;
+}
+
+input {
+    border-radius: 10px;
+    padding: .4em .3em;
+    border: solid 1px #f22558;
+    font-size: 16px;
+}
+
+input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+input::placeholder {
+    color: #c11e41be;
+    font-size: 16px;
+}
+
+.button__jogadores {
+    background: var(--secondary);
+    color: #fff;
+    border: none;
+    padding: .6em 3em;
+    border-radius: 2em;
+    cursor: pointer;
+    margin-top: 0.6em;
+}
+
+#jogadores {
+    border-radius: 10px;
+    height: auto;
+    padding: 10px;
+    position: fixed;
+    top: 25%;
+}
+
+.box__flex {
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    display: block;
+    margin-top: .2em;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+button {
+    background: var(--secondary);
+    color: #fff;
+    border: none;
+    padding: .9em 3em;
+    border-radius: 2em;
+    cursor: pointer;
+    margin-bottom: 0.3em;
+}
+
+.color-b {
+    color: #000;
+    font-size: 1em;
+}
+
+.div__area {
+    width: 1em;
+    background-color: rgba(196, 194, 194, 0.89);
+    color: rgba(196, 194, 194, 0.89);
+    margin: .1em;
+    padding: 1.3em .9em;
+    border-radius: 10%;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+
+.box__externo__conteudo {
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    position: relative;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+}
+
+.p__footer {
+    color: #fff;
+    margin: 10px;
+    font-size: 13px;
+    padding-bottom: 10px;
+}
+
+
+/*Hover icones sociais header*/
+
+a.facebook:hover {
+    content: url(../assets/facebook_logo_dark__1.png);
+    width: 33px;
+    height: auto;
+    margin: 15px 5px 5px 0px;
+    text-decoration: none;
+    border-bottom: none;
+    padding: 0;
+}
+
+a.instagram:hover {
+    content: url(../assets/instagram_logo-dark__1.png);
+    width: 33px;
+    height: auto;
+    margin: 15px 5px 5px 0px;
+}
+
+a.twitter:hover {
+    content: url(../assets/twitter_logo_dark__1.png);
+    width: 33px;
+    height: auto;
+    margin: 15px 5px 5px 0px;
+}
+
+a.linkedin:hover {
+    content: url(../assets/linkedin_logo_dark__1.png);
+    width: 33px;
+    height: auto;
+    margin: 15px 5px 5px 0px;
+}
+
+a.github:hover {
+    content: url(../assets/GitHub_logo_da__1.png);
+    width: 33px;
+    height: auto;
+    margin: 15px 5px 5px 0px;
+}
+
+a.whatsapp:hover {
+    content: url(../assets/Whatsapp_logo_dark__1.png);
+    width: 33px;
+    height: auto;
+    margin: 15px 5px 5px 0px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    #jogadores {
+        border-radius: 10px;
+        height: auto;
+        padding: 8px;
+        position: relative;
+    }
+    .box__externo {
+        display: block;
+    }
+    .box__interno__mobile {
+        display: flex;
+        justify-content: center;
+    }
+    .left {
+        background-color: transparent;
+        margin: 0 auto;
+    }
+    .left img {
+        margin-top: 20px;
+        width: 60%;
+    }
+    .right {
+        margin: 0 auto;
+        width: 80%;
+    }
+    footer {
+        margin-top: 10px;
+    }
+    .ingressar__p {
+        background-color: transparent;
+        font-size: 0.8em;
+        color: var(--secondary);
+    }
+    .ingressar__p:hover {
+        background-color: transparent;
+    }
+    .p__footer {
+        font-size: 8.6px;
+    }
+    li {
+        color: #F22558;
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    .icones__sociais {
+        width: 30px;
+        margin: 8px 0px 0px 0px;
+    }
+}
