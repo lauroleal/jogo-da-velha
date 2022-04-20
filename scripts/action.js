@@ -8,9 +8,20 @@ function nomesJogadores() {
 
     let jogador_1 = getId('jogador_1').value.toUpperCase();
     let jogador_2 = getId('jogador_2').value.toUpperCase();
+
     // jogando na sission pra facilitar a manipulação depois
+if(jogador_1 === ''){
+    jogador_1 = 'Jogador 1';
+    sessionStorage.setItem('jogador_1','jogador 1');
+}else{
     sessionStorage.setItem('jogador_1',jogador_1);
+}
+if(jogador_2 === ''){
+    jogador_2 = 'Jogador 2';
+    sessionStorage.setItem('jogador_2','jogador 2');
+}else{
     sessionStorage.setItem('jogador_2',jogador_2);
+} 
 
     // removendo o quadro dos inputs que preenche os nomes dos jogadores
     let removerInput = getId('jogadores');
