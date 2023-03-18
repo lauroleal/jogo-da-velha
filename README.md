@@ -1,6 +1,5 @@
 # jogo-da-velha
 Jogo da velha desenvolvido no Bootcamp Órbi Web Games Developer pela Dio
-# Gerador de Currículo!
 
 ## Tela do Projeto:
 ![Tela do Projeto](https://i.imgur.com/3zPdzBa.gif)
